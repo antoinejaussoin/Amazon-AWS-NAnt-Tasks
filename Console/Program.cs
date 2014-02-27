@@ -28,7 +28,7 @@ namespace Console
             //config.RegionEndpoint =
             //config.UseHttp = true;
 
-            var client = AWSClientFactory.CreateAmazonS3Client("AKIAJVPTOUKWWVY6URWQ", "60Yw70qz5OOhzTCqegtNqSQUjeBSLX5bgbo/QNxc", config);
+            var client = AWSClientFactory.CreateAmazonS3Client("", "", config);
 
             //client.
             var response = client.ListBuckets();
