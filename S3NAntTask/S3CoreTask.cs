@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Net;
+using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
 using NAnt.Core;
@@ -29,6 +31,22 @@ namespace S3NAntTask
         [StringValidator(AllowEmpty = false)]
         public string BucketName { get; set; }
 
+        [TaskAttribute("proxyhost", Required = false)]
+        [StringValidator(AllowEmpty = false)]
+        public string ProxyHost { get; set; }
+
+        [TaskAttribute("proxyport", Required = false)]
+        [StringValidator(AllowEmpty = false)]
+        public string ProxyPort { get; set; }
+
+        [TaskAttribute("proxyusername", Required = false)]
+        [StringValidator(AllowEmpty = false)]
+        public string ProxyUsername { get; set; }
+
+        [TaskAttribute("proxypassword", Required = false)]
+        [StringValidator(AllowEmpty = false)]
+        public string ProxyPassword { get; set; }
+
         [TaskAttribute("region", Required = false)]
         [StringValidator(AllowEmpty = false)]
         public string Region
@@ -47,11 +65,26 @@ namespace S3NAntTask
         #endregion
 
         /// <summary>Get an Amazon S3 client. Be sure to dispose of the client when done</summary>
-        public AmazonS3 Client
+        public IAmazonS3 Client
         {
             get
             {
-                return Amazon.AWSClientFactory.CreateAmazonS3Client(AWSAccessKey, AWSSecretKey);
+                var config = new AmazonS3Config();
+
+                config.RegionEndpoint = RegionEndpoint.EUWest1;
+
+                if (!string.IsNullOrEmpty(ProxyHost))
+                {
+                    config.ProxyHost = ProxyHost;
+                    config.ProxyPort = string.IsNullOrEmpty(ProxyPort) ? 8080 : int.Parse(ProxyPort);
+                }
+
+                if (!string.IsNullOrEmpty(ProxyUsername))
+                {
+                    config.ProxyCredentials = new NetworkCredential(ProxyUsername, ProxyPassword);
+                }
+
+                return Amazon.AWSClientFactory.CreateAmazonS3Client(AWSAccessKey, AWSSecretKey, config);
             }
         }
 
@@ -63,7 +96,7 @@ namespace S3NAntTask
             {
                 try
                 {
-                    using (var response = Client.ListBuckets())
+                    var response = Client.ListBuckets();
                     {
                         if (response.Buckets.Any(bucket => bucket.BucketName.Equals(bucketName)))
                         {

@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3NAntTask", "S3NAntTask\S3NAntTask.csproj", "{BC648D86-881A-4DFE-9A24-EC422B1B6D86}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQSNAntTask", "SQSNAntTask\SQSNAntTask.csproj", "{444108AA-0F95-41CC-9983-4667AF629256}"
@@ -8,6 +8,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SNSNAntTask", "SNSNAntTask\SNSNAntTask.csproj", "{7FA1C195-39A7-407D-B7A4-F73B7E7A22DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoDbTask", "DynamoDbTask\DynamoDbTask.csproj", "{CE9A9A91-DE36-4CDF-93E4-316A49AF3E5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{0D980033-5819-4591-833D-7F848FE73E1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,12 @@ Global
 		{CE9A9A91-DE36-4CDF-93E4-316A49AF3E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE9A9A91-DE36-4CDF-93E4-316A49AF3E5A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CE9A9A91-DE36-4CDF-93E4-316A49AF3E5A}.Release|x86.ActiveCfg = Release|Any CPU
+		{0D980033-5819-4591-833D-7F848FE73E1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D980033-5819-4591-833D-7F848FE73E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D980033-5819-4591-833D-7F848FE73E1B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0D980033-5819-4591-833D-7F848FE73E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D980033-5819-4591-833D-7F848FE73E1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D980033-5819-4591-833D-7F848FE73E1B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

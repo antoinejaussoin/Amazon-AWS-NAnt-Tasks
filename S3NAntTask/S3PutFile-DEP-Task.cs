@@ -53,7 +53,7 @@ namespace S3NAntTask
                         Key = FileName,
                         BucketName = BucketName,
                         FilePath = FilePath,
-                        Timeout = timeout
+                        Timeout = TimeSpan.FromMilliseconds(timeout)
                     };
 
                     var response = Client.PutObject(request);

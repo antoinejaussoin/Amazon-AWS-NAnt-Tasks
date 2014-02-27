@@ -61,8 +61,7 @@ namespace S3NAntTask
                     GetObjectRequest request = new GetObjectRequest
                     {
                         Key = FilePath,
-                        BucketName = BucketName,
-                        Timeout = timeout
+                        BucketName = BucketName
                     };
 
                     using (var response = Client.GetObject(request))

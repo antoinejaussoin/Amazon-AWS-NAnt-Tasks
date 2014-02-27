@@ -72,7 +72,7 @@ namespace S3NAntTask
 
         }
 
-        private void FindKeys(string BucketName, DeleteObjectsRequest deleteRequest, string SearchString, AmazonS3 Client)
+        private void FindKeys(string BucketName, DeleteObjectsRequest deleteRequest, string SearchString, IAmazonS3 Client)
         {
             ListObjectsRequest request = new ListObjectsRequest
             {

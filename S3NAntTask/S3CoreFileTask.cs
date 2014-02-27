@@ -58,7 +58,7 @@ namespace S3NAntTask
                         BucketName = BucketName
                     };
 
-                    using (var response = Client.ListObjects(request))
+                    var response = Client.ListObjects(request);
                     {
                         foreach (var file in response.S3Objects)
                         {
