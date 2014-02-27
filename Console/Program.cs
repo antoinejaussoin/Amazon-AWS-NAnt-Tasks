@@ -22,10 +22,10 @@ namespace Console
             System.Net.WebRequest.DefaultWebProxy = WebRequest.GetSystemWebProxy();
 
             AmazonS3Config config = new AmazonS3Config();
-            config.ProxyHost = "localhost";
-            config.ProxyPort = 3128;
+            //config.ProxyHost = "localhost";
+            //config.ProxyPort = 3128;
             //config.ProxyCredentials = new 
-            //config.RegionEndpoint =
+            config.RegionEndpoint = RegionEndpoint.EUWest1;
             //config.UseHttp = true;
 
             var client = AWSClientFactory.CreateAmazonS3Client("", "", config);
